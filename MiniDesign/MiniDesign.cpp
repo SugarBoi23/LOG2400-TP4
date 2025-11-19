@@ -9,8 +9,9 @@ int main(int argc, char* argv[]) {
     // On accepte des points en entrée.
     if (argc > 1) {
         std::ostringstream oss;
-        for (int i = 1; i < argc; ++i) oss << argv[i] << " ";
-        args = oss.str();
+        for (int i = 1; i < argc; ++i) oss << argv[i] << " "; {
+            args = oss.str();
+        }
     } else {
         std::cout << "Entrez les points au format (x,y) :\n> ";
         std::getline(std::cin, args);

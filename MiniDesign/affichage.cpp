@@ -14,8 +14,9 @@ void tracerLigne(std::vector<std::vector<char>>& grille, int x0, int y0, int x1,
         for (int i = 0; i <= lignes; ++i) {
             // On trace chaque point de la ligne, de gauche à droite ou de droite à gauche selon la direction.
             int x = (x0 < x1) ? x0 + i : x0 - i;
-            if (y1 >= 0 && y1 < HAUTEUR && x >= 0 && x < LARGEUR)
+            if (y1 >= 0 && y1 < HAUTEUR && x >= 0 && x < LARGEUR) {
                 grille[y1][x] = '/';
+            }
         }
     } else {
         // Si la ligne est verticale ou diagonale 
@@ -24,8 +25,9 @@ void tracerLigne(std::vector<std::vector<char>>& grille, int x0, int y0, int x1,
             // On fait une interpolation lineaire
             int x = round(x0 + t * (x1 - x0));
             int y = round(y0 + t * (y1 - y0));
-            if (x >= 0 && x < LARGEUR && y >= 0 && y < HAUTEUR)
+            if (x >= 0 && x < LARGEUR && y >= 0 && y < HAUTEUR) {
                 grille[y][x] = '/';
+            }
         }
     }
 }
@@ -41,8 +43,9 @@ void imprimerGrille(const std::vector<Point>& points) {
 
     // On imprime la grille.
     for (int y = HAUTEUR - 1; y >= 0; --y) {
-        for (int x = 0; x < LARGEUR; ++x)
+        for (int x = 0; x < LARGEUR; ++x) {
             std::cout << grille[y][x];
+        }
         std::cout << '\n';
     }
 }

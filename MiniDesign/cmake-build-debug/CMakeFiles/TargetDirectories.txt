@@ -1,3 +1,0 @@
-C:/Users/hienq/OneDrive/Bureau/Polytechnique/Session 3/LOG2400/MiniDesign/cmake-build-debug/CMakeFiles/MiniDesign.dir
-C:/Users/hienq/OneDrive/Bureau/Polytechnique/Session 3/LOG2400/MiniDesign/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/hienq/OneDrive/Bureau/Polytechnique/Session 3/LOG2400/MiniDesign/cmake-build-debug/CMakeFiles/rebuild_cache.dir

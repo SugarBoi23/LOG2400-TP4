@@ -1,5 +1,8 @@
 #include "Display.hpp"
 
-Display::Display(std::vector<Point>& points)
+#include <map>
+#include <string>
+
+Display::Display(std::map<std::string, Point>& points)
     : points(points) { }
 

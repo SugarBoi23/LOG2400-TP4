@@ -1,15 +1,17 @@
 #pragma once
 
-#include <vector>
 #include <affichage.hpp>
+
+#include <map>
+#include <String>
 
 class Display {
 public:
-    explicit Display(std::vector<Point>& points);
+    explicit Display(std::map<std::string, Point>& points);
     virtual ~Display() = default;
 
     virtual void show() = 0;
 
 private:
-    std::vector<Point> points;
+    std::map<std::string, Point> points;
 };

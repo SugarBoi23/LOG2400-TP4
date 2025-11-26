@@ -1,7 +1,10 @@
 #include "Display.hpp"
 #include "DisplayTexture.hpp"
 
-DisplayTexture::DisplayTexture(std::vector<Point>& points)
+#include <map>
+#include <string>
+
+DisplayTexture::DisplayTexture(std::map<std::string, Point>& points)
         : Display(points) {};
 
 void DisplayTexture::show() {

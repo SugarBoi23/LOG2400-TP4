@@ -2,6 +2,7 @@
 
 #include "Display.hpp"
 
+#include <array>
 #include <map>
 #include <string>
 

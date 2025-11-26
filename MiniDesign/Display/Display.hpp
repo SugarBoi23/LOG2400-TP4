@@ -1,6 +1,6 @@
 #pragma once
 
-#include <affichage.hpp>
+#include "affichage.hpp"
 
 #include <map>
 #include <String>
@@ -10,5 +10,5 @@ public:
     Display() = default;
     virtual ~Display() = default;
 
-    virtual void show(std::map<std::string, Point>& points) = 0;
+    virtual void show(std::map<std::string, Point>& points);
 };

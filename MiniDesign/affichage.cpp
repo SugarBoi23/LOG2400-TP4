@@ -1,4 +1,4 @@
-#include "affichage.h"
+#include "affichage.hpp"
 #include <cmath>
 #include <iostream>
 #include <sstream>

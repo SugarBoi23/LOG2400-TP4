@@ -3,10 +3,10 @@
 #include <map>
 #include <string>
 
-class BuildEdges {
+class EdgeBuilder {
 public:
-    BuildEdges() = default;
-    virtual ~BuildEdges() = default;
+    EdgeBuilder() = default;
+    virtual ~EdgeBuilder() = default;
 
     virtual void build(std::map<std::string, Point>& points);
 };

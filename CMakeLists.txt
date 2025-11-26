@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(MiniDesign)
 
 add_executable(LOG2400_TP4
-        MiniDesign/affichage.cpp
-        MiniDesign/affichage.h
-        MiniDesign/MiniDesign.cpp)
+        MiniDesign/MiniDesign.cpp
+        MiniDesign/Display/Display.cpp
+        MiniDesign/Display/Display.hpp
+        MiniDesign/Display/DisplayID.cpp
+        MiniDesign/Display/DisplayID.hpp
+        MiniDesign/Display/DisplayTexture.cpp
+        MiniDesign/Display/DisplayTexture.hpp)

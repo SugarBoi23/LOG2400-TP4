@@ -1,14 +1,13 @@
 #pragma once
 
-#include "affichage.hpp"
+#include "Component/Component.hpp"
 
-#include <map>
-#include <String>
+#include <vector>
 
 class Display {
 public:
     Display() = default;
     virtual ~Display() = default;
 
-    virtual void show(std::map<std::string, Point>& points);
+    virtual void show(std::vector<Component>& components);
 };

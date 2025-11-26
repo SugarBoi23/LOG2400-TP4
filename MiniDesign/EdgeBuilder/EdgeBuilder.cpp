@@ -1,9 +1,8 @@
-#include "affichage.hpp"
+#include "Component/Component.hpp"
 #include "EdgeBuilder.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
-void EdgeBuilder::build(std::map<std::string, Point>& points) {}
+void EdgeBuilder::build(std::vector<Component>& components) {}
 
 

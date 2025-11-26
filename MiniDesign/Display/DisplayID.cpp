@@ -1,8 +1,7 @@
 #include "DisplayID.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
-void DisplayID::show(std::map<std::string, Point>& points) {
+void DisplayID::show(std::vector<Component>& components) {
 
 }

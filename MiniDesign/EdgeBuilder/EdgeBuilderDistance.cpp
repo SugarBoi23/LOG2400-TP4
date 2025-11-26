@@ -1,8 +1,8 @@
+#include "Component/Component.hpp"
 #include "EdgeBuilderDistance.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
-void EdgeBuilderDistance::build(std::map<std::string, Point> &points) {
+void EdgeBuilderDistance::build(std::vector<Component>& components) {
 
 }

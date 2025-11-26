@@ -1,15 +1,14 @@
 #pragma once
 
+#include "Component/Component.hpp"
 #include "Display.hpp"
 
-#include <array>
-#include <map>
-#include <string>
+#include <vector>
 
 class DisplayID : public Display {
 public:
     DisplayID() = default;
     ~DisplayID() override = default;
 
-    void show(std::map<std::string, Point>& points) override;
+    void show(std::vector<Component>& components) override;
 };

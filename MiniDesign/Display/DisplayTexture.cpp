@@ -1,9 +1,8 @@
-#include "Display.hpp"
+#include "Component/Component.hpp"
 #include "DisplayTexture.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
-void DisplayTexture::show(std::map<std::string, Point>& points) {
+void DisplayTexture::show(std::vector<Component> &components) {
 
 }

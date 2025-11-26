@@ -1,14 +1,14 @@
 #pragma once
 
+#include "Component/Component.hpp"
 #include "Display.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
 class DisplayTexture : public Display {
 public:
     DisplayTexture() = default;
     ~DisplayTexture() override = default;
 
-    void show(std::map<std::string, Point>& points) override;
+    void show(std::vector<Component>& components) override;
 };

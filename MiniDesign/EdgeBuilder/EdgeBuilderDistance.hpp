@@ -1,15 +1,14 @@
 #pragma once
 
-#include "affichage.hpp"
+#include "Component/Component.hpp"
 #include "EdgeBuilder.hpp"
 
-#include <map>
-#include <string>
+#include <vector>
 
 class EdgeBuilderDistance : public EdgeBuilder {
 public:
     EdgeBuilderDistance() = default;
     ~EdgeBuilderDistance() override = default;
 
-    void build(std::map<std::string, Point>& points) override;
+    void build(std::vector<Component>& components) override;
 };

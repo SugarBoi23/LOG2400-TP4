@@ -1,4 +1,12 @@
+#include "EdgeBuilder/EdgeBuilder.hpp"
+#include "Display/Display.hpp"
 #include "ScatterGraph.hpp"
+
+#include <string>
+
+bool ScatterGraph::isScatterGraph() const {
+    return true;
+}
 
 void ScatterGraph::fusion() {
 

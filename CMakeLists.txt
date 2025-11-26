@@ -7,9 +7,13 @@ include_directories(MiniDesign)
 
 add_executable(LOG2400_TP4
         MiniDesign/MiniDesign.cpp
-        MiniDesign/Display/Display.cpp
         MiniDesign/Display/Display.hpp
         MiniDesign/Display/DisplayID.cpp
         MiniDesign/Display/DisplayID.hpp
         MiniDesign/Display/DisplayTexture.cpp
-        MiniDesign/Display/DisplayTexture.hpp)
+        MiniDesign/Display/DisplayTexture.hpp
+        MiniDesign/BuildEdges/BuildEdges.cpp
+        MiniDesign/BuildEdges/BuildEdges.hpp
+        MiniDesign/Display/Display.cpp
+        MiniDesign/affichage.cpp
+        MiniDesign/affichage.hpp)

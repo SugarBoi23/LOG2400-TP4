@@ -1,8 +1,9 @@
-#include "AffichageTexture.hpp"
+#include "Display.hpp"
+#include "DisplayTexture.hpp"
 
-AffichageTexture::AffichageTexture(std::vector<Point>& points)
-        : Affichage(points) {};
+DisplayTexture::DisplayTexture(std::vector<Point>& points)
+        : Display(points) {};
 
-void AffichageTexture::imprimer() {
+void DisplayTexture::show() {
 
 }

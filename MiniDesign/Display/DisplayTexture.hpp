@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Affichage.hpp"
+#include "Display.hpp"
 
-class AffichageTexture : public Affichage {
+class DisplayTexture : public Display {
 public:
-    explicit AffichageTexture(std::vector<Point>& points);
+    explicit DisplayTexture(std::vector<Point>& points);
 
-    void imprimer() override;
+    void show() override;
 };

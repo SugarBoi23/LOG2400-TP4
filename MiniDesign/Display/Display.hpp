@@ -6,7 +6,8 @@
 class Display {
 public:
     explicit Display(std::vector<Point>& points);
-    ~Display() = default;
+
+    virtual ~Display() = default;
 
     virtual void show() = 0;
 

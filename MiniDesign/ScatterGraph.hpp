@@ -29,6 +29,8 @@ public:
     // command q
     void exit();
 
+    void setDisplay(const Display& otherDisplay);
+    void setEdgeBuilder(const EdgeBuilder& otherEdgeBuilder);
 
 private:
     std::map<std::string, Point> points_;

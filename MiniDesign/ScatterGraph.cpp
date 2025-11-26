@@ -28,3 +28,12 @@ void ScatterGraph::buildEdges() {
 void ScatterGraph::exit() {
     // TODO
 }
+
+void ScatterGraph::setDisplay(const Display& otherDisplay) {
+    display_ = otherDisplay;
+}
+
+void ScatterGraph::setEdgeBuilder(const EdgeBuilder& otherEdgeBuilder) {
+    edgeBuilder_ = otherEdgeBuilder;
+}
+

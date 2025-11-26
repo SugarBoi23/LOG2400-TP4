@@ -7,11 +7,8 @@
 
 class Display {
 public:
-    explicit Display(std::map<std::string, Point>& points);
+    Display() = default;
     virtual ~Display() = default;
 
-    virtual void show() = 0;
-
-private:
-    std::map<std::string, Point> points;
+    virtual void show(std::map<std::string, Point>& points) = 0;
 };

@@ -3,9 +3,6 @@
 #include <map>
 #include <string>
 
-DisplayID::DisplayID(std::map<std::string, Point>& points)
-    : Display(points) {};
-
-void DisplayID::show() {
+void DisplayID::show(std::map<std::string, Point>& points) {
 
 }

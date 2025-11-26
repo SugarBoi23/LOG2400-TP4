@@ -7,7 +7,8 @@
 
 class DisplayID : public Display {
 public:
-    explicit DisplayID(std::map<std::string, Point>& points);
+    DisplayID() = default;
+    ~DisplayID() override = default;
 
-    void show() override;
+    void show(std::map<std::string, Point>& points) override;
 };

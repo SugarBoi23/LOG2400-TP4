@@ -7,7 +7,8 @@
 
 class DisplayTexture : public Display {
 public:
-    explicit DisplayTexture(std::map<std::string, Point>& points);
+    DisplayTexture() = default;
+    ~DisplayTexture() override = default;
 
-    void show() override;
+    void show(std::map<std::string, Point>& points) override;
 };

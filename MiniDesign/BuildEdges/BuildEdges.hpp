@@ -1,10 +1,12 @@
 #pragma once
+
+#include <map>
 #include <string>
 
 class BuildEdges {
 public:
-    explicit BuildEdges(std::map<std::string, Point>& points);
+    BuildEdges() = default;
     virtual ~BuildEdges() = default;
 
-    virtual void build() = 0;
+    virtual void build(std::map<std::string, Point>& points);
 };

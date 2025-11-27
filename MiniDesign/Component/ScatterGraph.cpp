@@ -2,10 +2,38 @@
 #include "Display/Display.hpp"
 #include "ScatterGraph.hpp"
 
+#include <algorithm>
 #include <string>
+#include <sstream>
+
+ScatterGraph::ScatterGraph(const std::string& points) {
+    std::istringstream stream(points);
+    std::string pointsStr;
+
+    while (stream >> pointsStr) {
+        pointsStr.erase(
+                std::remove(pointsStr.begin(), pointsStr.end(), '('),
+                pointsStr.end());
+        pointsStr.erase(
+                std::remove(pointsStr.begin(),
+                pointsStr.end(), ')'), pointsStr.end());
+
+        size_t commaIndex = pointsStr.find(',');
+        if (commaIndex != std::string::npos) {
+            int x = std::stoi(pointsStr.substr(0, commaIndex));
+            int y = std::stoi(pointsStr.substr(commaIndex + 1));
+
+            components_.emplace_back(std::make_shared<Point>(Point{x, y}));
+        }
+    }
+}
 
 ComponentList & ScatterGraph::getComponents() {
     return components_;
+}
+
+void ScatterGraph::setGrid(const Grid& grid) {
+    grid_ = grid;
 }
 
 bool ScatterGraph::isScatterGraph() const {

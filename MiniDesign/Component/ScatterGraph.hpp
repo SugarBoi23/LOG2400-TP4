@@ -14,8 +14,10 @@
 class ScatterGraph : Component {
 public:
     explicit ScatterGraph() = default;
+    explicit ScatterGraph(const std::string& points);
     ~ScatterGraph() override = default;
 
+    void setGrid(const Grid& grid);
     [[nodiscard]] ComponentList& getComponents();
     [[nodiscard]] bool isScatterGraph() const override;
 
@@ -38,6 +40,7 @@ public:
     void setEdgeBuilder(const EdgeBuilder& otherEdgeBuilder);
 
 private:
+    Grid grid_;
     ComponentList components_;
     std::string texture_;
 

@@ -1,6 +1,5 @@
 #include "EdgeBuilder.hpp"
-#include "Utils/Grid.hpp"
-#include "Utils/ComponentList.hpp"
+#include "Utils/Utils.hpp"
 
 #include <cmath>
 #include <memory>
@@ -37,6 +36,6 @@ void EdgeBuilder::traceLine(Grid& grid, Point start, Point end) {
     }
 }
 
-void EdgeBuilder::build(Grid& grid, ComponentList &points) {}
+void EdgeBuilder::build(Grid& grid, ComponentList points) {}
 
 

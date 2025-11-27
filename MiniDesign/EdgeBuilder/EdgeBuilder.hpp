@@ -2,8 +2,7 @@
 
 #include "Component/Component.hpp"
 #include "Component/Point.hpp"
-#include "Utils/Grid.hpp"
-#include "Utils/ComponentList.hpp"
+#include "Utils/Utils.hpp"
 
 #include <memory>
 #include <vector>
@@ -15,9 +14,9 @@ public:
     virtual ~EdgeBuilder() = default;
 
     void traceLine(Grid& grid, Point start, Point end);
-    virtual void build(Grid& grid, ComponentList& points);
+    virtual void build(Grid& grid, ComponentList points);
 
-private:
+protected:
     static const int WIDTH = 30;
     static const int HEIGHT = 20;
 };

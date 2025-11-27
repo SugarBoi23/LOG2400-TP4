@@ -6,7 +6,7 @@
 #include "Display/DisplayTexture.hpp"
 #include "EdgeBuilder/EdgeBuilderID.hpp"
 #include "EdgeBuilder/EdgeBuilderDistance.hpp"
-#include "Utils/ComponentList.hpp"
+#include "Utils/Utils.hpp"
 
 #include <string>
 #include <vector>

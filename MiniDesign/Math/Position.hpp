@@ -1,3 +1,5 @@
+#pragma once
+
 namespace Math {
     class Position {
     public:
@@ -5,8 +7,8 @@ namespace Math {
         Position(const Position& otherPosition);
         Position(int x, int y);
 
-        int getX();
-        int getY();
+        [[nodiscard]] int getX();
+        [[nodiscard]] int getY();
 
     private:
         int x_;

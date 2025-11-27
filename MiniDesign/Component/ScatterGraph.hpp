@@ -6,6 +6,7 @@
 #include "Display/DisplayTexture.hpp"
 #include "EdgeBuilder/EdgeBuilderID.hpp"
 #include "EdgeBuilder/EdgeBuilderDistance.hpp"
+#include "Utils/ComponentList.hpp"
 
 #include <string>
 #include <vector>
@@ -15,6 +16,7 @@ public:
     explicit ScatterGraph() = default;
     ~ScatterGraph() override = default;
 
+    [[nodiscard]] ComponentList& getComponents();
     [[nodiscard]] bool isScatterGraph() const override;
 
     // command a
@@ -36,7 +38,7 @@ public:
     void setEdgeBuilder(const EdgeBuilder& otherEdgeBuilder);
 
 private:
-    std::vector<Component> components;
+    ComponentList components_;
     std::string texture_;
 
     Display display_;

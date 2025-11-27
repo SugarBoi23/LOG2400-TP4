@@ -1,4 +1,3 @@
-#include "Math/Position.hpp"
 #include "Point.hpp"
 
 Point::Point() {
@@ -11,6 +10,18 @@ Point::Point(const Math::Position& position) {
 
 Point::Point(int x, int y) {
     position_ = Math::Position(x, y);
+}
+
+int Point::getX() {
+    return position_.getX();
+}
+
+int Point::getY() {
+    return position_.getY();
+}
+
+Math::Position Point::getPosition() {
+    return position_;
 }
 
 bool Point::isScatterGraph() const {

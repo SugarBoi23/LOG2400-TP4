@@ -4,6 +4,10 @@
 
 #include <string>
 
+ComponentList & ScatterGraph::getComponents() {
+    return components_;
+}
+
 bool ScatterGraph::isScatterGraph() const {
     return true;
 }

@@ -16,7 +16,6 @@ public:
     explicit ScatterGraph(const std::string& points);
     ~ScatterGraph() override = default;
 
-    Grid getGrid();
     [[nodiscard]] ComponentList& getComponents();
     [[nodiscard]] std::shared_ptr<Component> getComponent(int ID) const;
     [[nodiscard]] bool isScatterGraph() const override;

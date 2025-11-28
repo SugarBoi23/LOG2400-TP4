@@ -34,10 +34,6 @@ ScatterGraph::ScatterGraph(const std::string& points)
         HEIGHT, std::vector<std::string>(WIDTH, " "));
 }
 
-Grid ScatterGraph::getGrid() {
-    return grid_;
-}
-
 ComponentList & ScatterGraph::getComponents() {
     return components_;
 }
@@ -53,6 +49,30 @@ std::shared_ptr<Component> ScatterGraph::getComponent(int ID) const {
 
 bool ScatterGraph::isScatterGraph() const {
     return true;
+}
+
+void ScatterGraph::listPoints() {
+    std::cout << "List of ScatterGraph(" << getID() <<  ") :" << std::endl;
+    for (const auto& component : components_) {
+        if (auto pointPtr = std::dynamic_pointer_cast<Point>(component)) {
+            std::cout << pointPtr->getID() << ":"
+                      << " Position: (" << pointPtr->getPosition().getX()
+                      << "," << pointPtr->getPosition().getY() << ")"
+                      << " | Texture: " << texture_
+                      << std::endl;
+        } if (auto graphPtr = std::dynamic_pointer_cast<ScatterGraph>(component)) {
+            if (this != graphPtr.get()) {
+                std::cout << graphPtr->getID() << " ScatterGraph" << std::endl;
+                graphPtr->listPoints();
+            }
+        }
+    }
+}
+
+void ScatterGraph::showPoints() {
+    if (display_) {
+        display_->show(grid_, components_, texture_);
+    }
 }
 
 void ScatterGraph::fusion() {
@@ -79,26 +99,23 @@ void ScatterGraph::fusion() {
     std::cout << std::endl;
 }
 
-void ScatterGraph::showPoints() {
-    if (display_) {
-        display_->show(grid_, components_, texture_);
-    }
-}
-
 void ScatterGraph::movePoint(int ID, const Math::Position& newPosition) {
     std::dynamic_pointer_cast<Point>(getComponent(ID))->setPosition(newPosition);
 }
 
-void ScatterGraph::listPoints() {
-    // TODO
-}
-
 void ScatterGraph::deletePoint(int ID) {
-    // TODO
+    for (int i = 0; i < static_cast<int>(components_.size()); ++i) {
+        if (components_[i]->getID() == ID) {
+            components_.erase(components_.begin() + i);
+            break;
+        }
+    }
 }
 
 void ScatterGraph::buildEdges() {
-    edgeBuilder_->build(grid_, components_);
+    if (edgeBuilder_) {
+        edgeBuilder_->build(grid_, components_);
+    }
 }
 
 void ScatterGraph::exit() {

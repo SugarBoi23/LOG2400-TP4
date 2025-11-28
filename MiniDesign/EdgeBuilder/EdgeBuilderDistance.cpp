@@ -29,6 +29,7 @@ void EdgeBuilderDistance::build(Grid& grid, ComponentList components) {
     }
 
     std::shared_ptr<Component> currentComponent = components.back();
+    std::shared_ptr<Component> firstComponent = currentComponent;
     components.pop_back();
     while (!components.empty()) {
         if (auto pointPtr = std::dynamic_pointer_cast<Point>(currentComponent)) {
@@ -38,11 +39,11 @@ void EdgeBuilderDistance::build(Grid& grid, ComponentList components) {
             double minDistance = std::numeric_limits<double>::max();
             for (const auto& component : components) {
                 auto otherPointPtr = std::dynamic_pointer_cast<Point>(component);
-                    if (otherPointPtr &&
+                if (otherPointPtr &&
                     calculateDistance(pointPtr->getPosition(), otherPointPtr->getPosition()) < minDistance) {
-                        closestPointPtr = otherPointPtr;
-                        closestIndex = index;
-                    }
+                    closestPointPtr = otherPointPtr;
+                    closestIndex = index;
+                }
                 index++;
             }
             traceLine(grid, *pointPtr, *closestPointPtr);
@@ -50,6 +51,9 @@ void EdgeBuilderDistance::build(Grid& grid, ComponentList components) {
             components.erase(components.begin() + closestIndex);
         }
     }
+    traceLine(grid,
+              *std::dynamic_pointer_cast<Point>(firstComponent),
+              *std::dynamic_pointer_cast<Point>(currentComponent));
 }
 
 double EdgeBuilderDistance::calculateDistance(Math::Position start, Math::Position end) {

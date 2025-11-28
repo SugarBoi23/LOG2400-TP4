@@ -15,8 +15,4 @@ public:
 
     void traceLine(Grid& grid, Point start, Point end);
     virtual void build(Grid& grid, ComponentList points);
-
-protected:
-    static const int WIDTH = 30;
-    static const int HEIGHT = 20;
 };

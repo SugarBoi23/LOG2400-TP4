@@ -12,6 +12,7 @@ public:
     [[nodiscard]] int getX();
     [[nodiscard]] int getY();
     [[nodiscard]] Math::Position getPosition();
+    void setPosition(const Math::Position& position);
     [[nodiscard]] bool isScatterGraph() const override;
 
 private:

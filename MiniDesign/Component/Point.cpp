@@ -24,6 +24,10 @@ Math::Position Point::getPosition() {
     return position_;
 }
 
+void Point::setPosition(const Math::Position& position) {
+    position_ = position;
+}
+
 bool Point::isScatterGraph() const {
     return false;
 }

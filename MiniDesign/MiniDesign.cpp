@@ -1,4 +1,3 @@
-#include "affichage.hpp"
 #include "Commands/Invoker.hpp"
 #include "Commands/CommandHandler.hpp"
 #include <iostream>
@@ -18,17 +17,9 @@ int main(int argc, char* argv[]) {
         std::cout << "Entrez les points au format (x,y) :\n> ";
         std::getline(std::cin, args);
     }
-    
-    // Voici des fonctions utiles pour réaliser le TP. 
-    // TODO: Il faudrait les placer dans des classes appropriées.
-    std::vector<TempPoint> points = creerPoints(args);
-    imprimerGrille(points);
-    
-    // Ce sont différentes textures possibles. Seules les 2 premières sont utilisées dans les scénarios du TP.
-    std::vector<char> texturesNuages = {'o', '#', '$'};
 
     std::string input;
-    ComponentList componentList;  // Liste des composants
+    ComponentList componentList;
     CommandHandler handler(componentList);
     
     // Menu
@@ -48,7 +39,7 @@ int main(int argc, char* argv[]) {
         // if (cmd == "q") break;
         Command* cmd = handler.findCommand(input);
         if (cmd) {
-            Invoker::execute(*cmd);  // Exécuter la commande
+            Invoker::execute(*cmd);
         }
     }
 

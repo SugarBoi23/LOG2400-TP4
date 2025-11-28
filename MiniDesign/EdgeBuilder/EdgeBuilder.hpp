@@ -13,7 +13,7 @@ public:
     EdgeBuilder() = default;
     virtual ~EdgeBuilder() = default;
 
-    void traceLine(Grid& grid, Point start, Point end);
+    static void traceLine(Grid& grid, Point start, Point end);
     virtual void build(Grid& grid, ComponentList points);
 protected:
     static void mergeGraphs(ComponentList& components);

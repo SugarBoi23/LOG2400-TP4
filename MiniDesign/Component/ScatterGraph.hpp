@@ -1,6 +1,5 @@
 #pragma once
 
-#include "affichage.hpp"
 #include "Component.hpp"
 #include "Display/Display.hpp"
 #include "EdgeBuilder/EdgeBuilder.hpp"

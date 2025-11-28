@@ -31,8 +31,6 @@ public:
     void deletePoint(int ID);
     // command c1 & c2
     void buildEdges();
-    // command q
-    void exit();
 
     void setDisplay(std::shared_ptr<Display> &&otherDisplay);
     void setEdgeBuilder(std::shared_ptr<EdgeBuilder> &&otherEdgeBuilder);

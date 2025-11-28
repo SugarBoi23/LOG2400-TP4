@@ -118,10 +118,6 @@ void ScatterGraph::buildEdges() {
     }
 }
 
-void ScatterGraph::exit() {
-    // TODO
-}
-
 void ScatterGraph::setDisplay(std::shared_ptr<Display> &&otherDisplay) {
     display_ = std::move(otherDisplay);
 }

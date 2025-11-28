@@ -15,4 +15,7 @@ public:
 
     void traceLine(Grid& grid, Point start, Point end);
     virtual void build(Grid& grid, ComponentList points);
+protected:
+    static void mergeGraphs(ComponentList& components);
+    static void clearGrid(Grid& grid);
 };

@@ -8,25 +8,8 @@
 #include <vector>
 
 void EdgeBuilderDistance::build(Grid& grid, ComponentList components) {
-    ComponentList newComponents{};
-    for (const auto & component : components) {
-        if (auto graphPtr = std::dynamic_pointer_cast<ScatterGraph>(component)) {
-            newComponents.insert(newComponents.end(),
-                              graphPtr->getComponents().begin(),
-                              graphPtr->getComponents().end());
-        }
-    }
-    components.insert(components.end(), newComponents.begin(), newComponents.end());
-
-    for (int i = static_cast<int>(components.size()) - 1; i >= 0; --i) {
-        if (std::dynamic_pointer_cast<ScatterGraph>(components[i])) {
-            components.erase(components.begin() + i);
-        }
-    }
-
-    if (components.empty()) {
-        return;
-    }
+    clearGrid(grid);
+    mergeGraphs(components);
 
     std::shared_ptr<Component> currentComponent = components.back();
     std::shared_ptr<Component> firstComponent = currentComponent;

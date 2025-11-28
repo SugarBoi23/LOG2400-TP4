@@ -1,3 +1,4 @@
+#include "Component/ScatterGraph.hpp"
 #include "EdgeBuilder.hpp"
 #include "Utils/Utils.hpp"
 
@@ -38,4 +39,28 @@ void EdgeBuilder::traceLine(Grid& grid, Point start, Point end) {
 
 void EdgeBuilder::build(Grid& grid, ComponentList points) {}
 
+void EdgeBuilder::mergeGraphs(ComponentList& components) {
+    ComponentList newComponents{};
+    for (const auto & component : components) {
+        if (auto graphPtr = std::dynamic_pointer_cast<ScatterGraph>(component)) {
+            newComponents.insert(newComponents.end(),
+                                 graphPtr->getComponents().begin(),
+                                 graphPtr->getComponents().end());
+        }
+    }
+    components.insert(components.end(), newComponents.begin(), newComponents.end());
 
+    for (int i = static_cast<int>(components.size()) - 1; i >= 0; --i) {
+        if (std::dynamic_pointer_cast<ScatterGraph>(components[i])) {
+            components.erase(components.begin() + i);
+        }
+    }
+}
+
+void EdgeBuilder::clearGrid(Grid& grid) {
+    for (int y = 0; y < HEIGHT; ++y) {
+        for (int x = 0; x < WIDTH; ++x) {
+            grid[y][x] = " ";
+        }
+    }
+}

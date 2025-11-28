@@ -3,12 +3,13 @@
 #include "ScatterGraph.hpp"
 
 #include <algorithm>
+#include <iostream>
 #include <memory>
 #include <string>
 #include <sstream>
 
 ScatterGraph::ScatterGraph(const std::string& points)
-    : texture_(getID()%2 == 0 ? textures_[0] : textures_[1]) {
+    : texture_(".") {
 
     std::istringstream stream(points);
     std::string pointsStr;
@@ -50,16 +51,32 @@ std::shared_ptr<Component> ScatterGraph::getComponent(int ID) const {
     return {};
 }
 
-std::string ScatterGraph::getTexture() const {
-    return texture_;
-}
-
 bool ScatterGraph::isScatterGraph() const {
     return true;
 }
 
 void ScatterGraph::fusion() {
-    // TODO
+    switch (getID() % 3) {
+        case 0:
+            texture_ = textures_[0];
+            break;
+        case 1:
+            texture_ = textures_[1];
+            break;
+        case 2:
+            texture_ = textures_[2];
+            break;
+        default:
+            texture_ = ".";
+            break;
+    }
+
+    for (const auto& component : components_) {
+        if (auto pointPtr = std::dynamic_pointer_cast<Point>(component)) {
+            std::cout << pointPtr->getID() << " ";
+        }
+    }
+    std::cout << std::endl;
 }
 
 void ScatterGraph::showPoints() {

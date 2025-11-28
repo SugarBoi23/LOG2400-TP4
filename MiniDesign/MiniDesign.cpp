@@ -36,7 +36,6 @@ int main(int argc, char* argv[]) {
                   << "q  - Quitter\n> ";
         getline(std::cin, input);
 
-        // if (cmd == "q") break;
         Command* cmd = handler.findCommand(input);
         if (cmd) {
             Invoker::execute(*cmd);

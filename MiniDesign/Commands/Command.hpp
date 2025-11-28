@@ -1,4 +1,6 @@
 #pragma once
+
+#include "Components/ScatterGraph.hpp"
 #include "Utils/Utils.hpp"
 
 class Command {
@@ -8,6 +10,6 @@ public:
     virtual void undo();
 
 protected:
-    explicit Command(ComponentList& componentList);
-    ComponentList& componentList;
+    explicit Command(const ScatterGraph& scatterGraph);
+    ScatterGraph scatterGraph_;
 };

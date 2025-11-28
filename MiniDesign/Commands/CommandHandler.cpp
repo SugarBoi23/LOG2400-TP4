@@ -1,8 +1,19 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandHandler.hpp"
-#include <iostream>
+#include "CommandA.hpp"
+#include "CommandC1.hpp"
+#include "CommandC2.hpp"
+#include "CommandD.hpp"
+#include "CommandF.hpp"
+#include "CommandO1.hpp"
+#include "CommandO2.hpp"
+#include "CommandS.hpp"
 
-CommandHandler::CommandHandler(ComponentList& componentList)
-        : componentList(componentList) {
+#include <iostream>
+#include <memory>
+
+CommandHandler::CommandHandler(const ScatterGraph& scatterGraph)
+        : scatterGraph_(scatterGraph) {
     Register<CommandA>("a");
     Register<CommandC1>("c1");
     Register<CommandC2>("c2");
@@ -11,17 +22,19 @@ CommandHandler::CommandHandler(ComponentList& componentList)
     Register<CommandO1>("o1");
     Register<CommandO2>("o2");
     Register<CommandS>("s");
-
 }
 
 Command* CommandHandler::findCommand(const std::string& key) {
+    if (key == "q") {
+        std::cout << "Closing..." << std::endl;
+        return nullptr;
+    }
     auto it = commands_.find(key);
     if (it != commands_.end()) {
         return it->second.get();
-    } else {
-        std::cout << "Unknown command: " << key << "\n";
-        return nullptr;
     }
+    std::cout << "Unknown command: " << key << "\n";
+    return nullptr;
 }
 
 void CommandHandler::undo() {
@@ -35,7 +48,7 @@ void CommandHandler::redo() {
 
 template<typename T>
 void CommandHandler::Register(const std::string& key) {
-    registerCommand(key, std::make_unique<T>(componentList));
+    registerCommand(key, std::make_unique<T>(scatterGraph_));
 }
 
 void CommandHandler::registerCommand(const std::string& key, std::unique_ptr<Command> cmd) {

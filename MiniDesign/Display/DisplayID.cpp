@@ -1,4 +1,4 @@
-#include "Component/Point.hpp"
+#include "Components/Point.hpp"
 #include "DisplayID.hpp"
 #include "Utils/Utils.hpp"
 

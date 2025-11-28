@@ -1,9 +1,14 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandO1.hpp"
-#include <iostream>
+#include "Display/DisplayTexture.hpp"
 
-CommandO1::CommandO1(ComponentList& componentList)
-        : Command(componentList) {}
+#include <memory>
+
+
+CommandO1::CommandO1(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandO1::execute() {
-    std::cout << "CommandO1 executed \n";
+    scatterGraph_.setDisplay(std::make_unique<DisplayTexture>());
+    scatterGraph_.showPoints();
 }

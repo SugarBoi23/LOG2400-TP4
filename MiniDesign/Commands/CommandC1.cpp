@@ -1,9 +1,13 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandC1.hpp"
-#include <iostream>
+#include "EdgeBuilder/EdgeBuilderID.hpp"
 
-CommandC1::CommandC1(ComponentList& componentList)
-        : Command(componentList) {}
+#include <memory>
+
+CommandC1::CommandC1(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandC1::execute() {
-    std::cout << "CommandC1 executed \n";
+    scatterGraph_.setEdgeBuilder(std::make_unique<EdgeBuilderID>());
+    scatterGraph_.buildEdges();
 }

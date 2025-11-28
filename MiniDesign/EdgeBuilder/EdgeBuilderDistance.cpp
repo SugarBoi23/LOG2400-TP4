@@ -1,5 +1,5 @@
-#include "Component/Component.hpp"
-#include "Component/ScatterGraph.hpp"
+#include "Components/Component.hpp"
+#include "Components/ScatterGraph.hpp"
 #include "EdgeBuilderDistance.hpp"
 #include "Utils/Utils.hpp"
 
@@ -40,7 +40,7 @@ void EdgeBuilderDistance::build(Grid& grid, ComponentList components) {
 }
 
 double EdgeBuilderDistance::calculateDistance(Math::Position start, Math::Position end) {
-    int deltaX = end.getX() - start.getX();
-    int deltaY = end.getY() - start.getY();
+    const int deltaX = end.getX() - start.getX();
+    const int deltaY = end.getY() - start.getY();
     return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
 }

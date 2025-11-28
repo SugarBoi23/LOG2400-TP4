@@ -29,12 +29,12 @@ add_executable(LOG2400_TP4
         MiniDesign/Commands/Invoker.cpp
         MiniDesign/Commands/Invoker.hpp
         MiniDesign/MiniDesign.cpp
-        MiniDesign/Component/Component.hpp
-        MiniDesign/Component/Component.cpp
-        MiniDesign/Component/ScatterGraph.cpp
-        MiniDesign/Component/ScatterGraph.hpp
-        MiniDesign/Component/Point.cpp
-        MiniDesign/Component/Point.hpp
+        MiniDesign/Components/Component.hpp
+        MiniDesign/Components/Component.cpp
+        MiniDesign/Components/ScatterGraph.cpp
+        MiniDesign/Components/ScatterGraph.hpp
+        MiniDesign/Components/Point.cpp
+        MiniDesign/Components/Point.hpp
         MiniDesign/Display/Display.cpp
         MiniDesign/Display/Display.hpp
         MiniDesign/Display/DisplayID.cpp

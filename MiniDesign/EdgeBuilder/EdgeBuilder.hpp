@@ -1,12 +1,7 @@
 #pragma once
 
-#include "Component/Component.hpp"
-#include "Component/Point.hpp"
+#include "Components/Point.hpp"
 #include "Utils/Utils.hpp"
-
-#include <memory>
-#include <vector>
-#include <string>
 
 class EdgeBuilder {
 public:

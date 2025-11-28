@@ -1,11 +1,16 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandD.hpp"
+#include "Math/Position.hpp"
+
 #include <iostream>
 
-CommandD::CommandD(ComponentList& componentList)
-        : Command(componentList) {}
+CommandD::CommandD(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandD::execute() {
-    std::cout << "CommandD executed \n";
+    // TODO: get ID and newPosition from user input
+    // TODO: add variadic arguments to invoker execute
+    // scatterGraph_.movePoint(ID, newPosition);
 }
 
 void CommandD::undo() {

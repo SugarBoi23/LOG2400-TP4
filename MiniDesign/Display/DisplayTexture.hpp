@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component/ScatterGraph.hpp"
+#include "Components/ScatterGraph.hpp"
 #include "Display.hpp"
 #include "Utils/Utils.hpp"
 

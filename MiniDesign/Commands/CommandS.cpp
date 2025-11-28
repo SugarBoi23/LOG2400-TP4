@@ -1,11 +1,15 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandS.hpp"
+
 #include <iostream>
 
-CommandS::CommandS(ComponentList& componentList)
-        : Command(componentList) {}
+CommandS::CommandS(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandS::execute() {
-    std::cout << "CommandS executed \n";
+    // TODO: get ID from user input
+    // TODO: add variadic arguments to invoker execute
+    // scatterGraph_.deletePoint(ID);
 }
 
 void CommandS::undo() {

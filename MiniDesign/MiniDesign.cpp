@@ -1,9 +1,10 @@
 #include "Commands/Invoker.hpp"
 #include "Commands/CommandHandler.hpp"
+#include "Components/ScatterGraph.hpp"
+
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
 
 int main(int argc, char* argv[]) {
     std::string args;
@@ -19,8 +20,8 @@ int main(int argc, char* argv[]) {
     }
 
     std::string input;
-    ComponentList componentList;
-    CommandHandler handler(componentList);
+    const ScatterGraph scatterGraph(args);
+    CommandHandler handler(scatterGraph);
     
     // Menu
     while (input != "q") {

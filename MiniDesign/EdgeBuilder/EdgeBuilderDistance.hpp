@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Component/Component.hpp"
 #include "EdgeBuilder.hpp"
 #include "Math/Position.hpp"
 #include "Utils/Utils.hpp"

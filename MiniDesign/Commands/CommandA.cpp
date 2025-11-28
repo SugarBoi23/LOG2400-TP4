@@ -1,9 +1,9 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandA.hpp"
-#include <iostream>
 
-CommandA::CommandA(ComponentList& componentList)
-        : Command(componentList) {}
+CommandA::CommandA(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandA::execute() {
-    std::cout << "CommandA executed \n";
+    scatterGraph_.listPoints();
 }

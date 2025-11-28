@@ -1,9 +1,9 @@
+#include "Components/ScatterGraph.hpp"
 #include "CommandF.hpp"
-#include <iostream>
 
-CommandF::CommandF(ComponentList& componentList)
-        : Command(componentList) {}
+CommandF::CommandF(const ScatterGraph& scatterGraph)
+        : Command(scatterGraph) {}
 
 void CommandF::execute() {
-    std::cout << "CommandF executed \n";
+    scatterGraph_.fusion();
 }

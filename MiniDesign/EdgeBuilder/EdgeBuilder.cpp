@@ -1,4 +1,4 @@
-#include "Component/ScatterGraph.hpp"
+#include "Components/ScatterGraph.hpp"
 #include "EdgeBuilder.hpp"
 #include "Utils/Utils.hpp"
 
@@ -7,10 +7,10 @@
 #include <vector>
 
 void EdgeBuilder::traceLine(Grid& grid, Point start, Point end) {
-    int x0 = start.getX();
-    int y0 = start.getY();
-    int x1 = end.getX();
-    int y1 = end.getY();
+    const int x0 = start.getX();
+    const int y0 = start.getY();
+    const int x1 = end.getX();
+    const int y1 = end.getY();
     int lignes = abs(y1 - y0);
     if (lignes == 0) {
         lignes = abs(x1 - x0);
@@ -22,7 +22,7 @@ void EdgeBuilder::traceLine(Grid& grid, Point start, Point end) {
         }
     } else {
         for (int i = 0; i <= lignes; ++i) {
-            double t = (double)i / lignes;
+            double t = static_cast<double>(i) / lignes;
             int x = round(x0 + t * (x1 - x0));
             int y = round(y0 + t * (y1 - y0));
             if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {

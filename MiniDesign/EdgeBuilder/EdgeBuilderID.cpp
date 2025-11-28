@@ -1,7 +1,7 @@
 #include "EdgeBuilderID.hpp"
 #include "Utils/Utils.hpp"
 
-#include <vector>
+#include <memory>
 
 void EdgeBuilderID::build(Grid& grid, ComponentList components) {
     clearGrid(grid);

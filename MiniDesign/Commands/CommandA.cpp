@@ -1,8 +1,9 @@
 #include "CommandA.hpp"
+#include <iostream>
 
-CommandA::CommandA(ScatterGraph& scatterGraph) 
-    : Command(scatterGraph) {}
+CommandA::CommandA(ComponentList& componentList)
+        : Command(componentList) {}
 
-void CommandA::execute() const{
-    // Implementation of execute for CommandA
+void CommandA::execute() {
+    std::cout << "CommandA executed \n";
 }

@@ -1,8 +1,9 @@
 #include "CommandO2.hpp"
+#include <iostream>
 
-CommandO2::CommandO2(ScatterGraph& scatterGraph) 
-    : Command(scatterGraph) {}
-    
-void CommandO2::execute() const{
-    // Implementation of execute for CommandO2
+CommandO2::CommandO2(ComponentList& componentList)
+        : Command(componentList) {}
+
+void CommandO2::execute() {
+    std::cout << "CommandO2 executed \n";
 }

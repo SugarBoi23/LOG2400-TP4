@@ -33,7 +33,7 @@ void tracerLigne(std::vector<std::vector<char>>& grille, int x0, int y0, int x1,
 }
 
 
-void imprimerGrille(const std::vector<Point>& points) {
+void imprimerGrille(const std::vector<TempPoint>& points) {
     // On crée une grille.
     std::vector<std::vector<char>> grille(HAUTEUR, std::vector<char>(LARGEUR, ' '));
 
@@ -52,8 +52,8 @@ void imprimerGrille(const std::vector<Point>& points) {
 
 
 
-std::vector<Point> creerPoints(const std::string& ligne) {
-    std::vector<Point> points;
+std::vector<TempPoint> creerPoints(const std::string& ligne) {
+    std::vector<TempPoint> points;
     // On crée un flux de lecture (istringstream) à partir de la chaîne ligne.
     std::istringstream iss(ligne);
     std::string token;

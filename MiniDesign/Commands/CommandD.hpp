@@ -3,6 +3,7 @@
 
 class CommandD : public Command {
 public:
-    CommandD(ScatterGraph& scatterGraph);
-    void execute() const override;
+    explicit CommandD(ComponentList& componentList);
+    void execute() override;
+    void undo() override;
 };

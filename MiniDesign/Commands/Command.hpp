@@ -1,13 +1,13 @@
 #pragma once
-#include "ScatterGraph.hpp"
+#include "Utils/Utils.hpp"
 
-class Command{
+class Command {
 public:
     virtual ~Command() = default;
+    virtual void execute() = 0;
+    virtual void undo();
 
-    virtual void execute() const = 0;
-    
 protected:
-    Command(ScatterGraph& scatterGraph);
-    ScatterGraph& scatterGraph_;
+    explicit Command(ComponentList& componentList);
+    ComponentList& componentList;
 };

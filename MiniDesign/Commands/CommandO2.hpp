@@ -3,6 +3,6 @@
 
 class CommandO2 : public Command {
 public:
-    CommandO2(ScatterGraph& scatterGraph);
-    void execute() const override;
+    explicit CommandO2(ComponentList& componentList);
+    void execute() override;
 };

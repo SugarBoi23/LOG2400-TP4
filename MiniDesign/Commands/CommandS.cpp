@@ -1,8 +1,13 @@
 #include "CommandS.hpp"
+#include <iostream>
 
-CommandS::CommandS(ScatterGraph& scatterGraph) 
-    : Command(scatterGraph) {}
-    
-void CommandS::execute() const{
-    // Implementation of execute for CommandS
+CommandS::CommandS(ComponentList& componentList)
+        : Command(componentList) {}
+
+void CommandS::execute() {
+    std::cout << "CommandS executed \n";
+}
+
+void CommandS::undo() {
+    std::cout << "Undo CommandS \n";
 }

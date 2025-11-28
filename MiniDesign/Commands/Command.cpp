@@ -1,5 +1,8 @@
 #include "Command.hpp"
-#include "ScatterGraph.hpp"
 
-Command::Command(ScatterGraph& scatterGraph)
-    : scatterGraph_(scatterGraph) {}
+Command::Command(ComponentList& componentList)
+        : componentList(componentList) {}
+
+void Command::undo() {
+    // Default nothing
+}

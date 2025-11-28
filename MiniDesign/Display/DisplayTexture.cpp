@@ -4,11 +4,12 @@
 #include <vector>
 #include <string>
 
-void DisplayTexture::show(Grid& grid, const ComponentList& components, const std::string& texture) {
+void DisplayTexture::show(Grid& grid, ComponentList& components, const std::string& texture) {
+    mergeGraphs(components);
     for (const auto& component : components) {
-        if (auto pointPtr = std::dynamic_pointer_cast<Point>(component)) {
-            int x = pointPtr->getX();
-            int y = pointPtr->getY();
+        if (const auto& pointPtr = std::dynamic_pointer_cast<Point>(component)) {
+            const int x = pointPtr->getX();
+            const int y = pointPtr->getY();
             if (y >= 0 && y < HEIGHT &&
                 x >= 0 && x < WIDTH) {
                 grid[y][x] = texture;

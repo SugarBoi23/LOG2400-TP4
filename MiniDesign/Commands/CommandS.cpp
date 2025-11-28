@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-CommandS::CommandS(const ScatterGraph& scatterGraph)
+CommandS::CommandS(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandS::execute() {

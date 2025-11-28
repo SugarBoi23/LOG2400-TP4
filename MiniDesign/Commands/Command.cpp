@@ -1,7 +1,7 @@
 #include "Components/ScatterGraph.hpp"
 #include "Command.hpp"
 
-Command::Command(const ScatterGraph& scatterGraph)
+Command::Command(ScatterGraph& scatterGraph)
         : scatterGraph_(scatterGraph) {}
 
 void Command::undo() {

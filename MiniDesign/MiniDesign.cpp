@@ -3,6 +3,7 @@
 #include "Components/ScatterGraph.hpp"
 
 #include <iostream>
+#include <memory>
 #include <sstream>
 #include <string>
 
@@ -15,7 +16,7 @@ int main(int argc, char* argv[]) {
             args = oss.str();
         }
     } else {
-        std::cout << "Entrez les points au format (x,y) :\n> ";
+        std::cout << "Enter the points in the following format: (x,y) (a,b) :\n> ";
         std::getline(std::cin, args);
     }
 
@@ -25,20 +26,19 @@ int main(int argc, char* argv[]) {
     
     // Menu
     while (input != "q") {
-        std::cout << "\nCommandes:\n"
-                  << "a  - Afficher les points et les nuages\n"
-                  << "o1 - Afficher l'orthèse avec les textures des points\n"
-                  << "o2 - Afficher l'orthèse avec les IDs des points\n"
-                  << "f  - Fusionner des points dans un nuage (et appliquer texture)\n"
-                  << "d  - Deplacer un point (ID)\n"
-                  << "s  - Supprimer un point (ID)\n"
-                  << "c1 - Créer les surfaces selon l'ordre des IDs\n"
-                  << "c2 - Créer les surfaces selon la distance minimale\n"
-                  << "q  - Quitter\n> ";
+        std::cout << "\nCommands:\n"
+                  << "a  - Show points and scatter graphs\n"
+                  << "o1 - Show orthosis with the points' textures\n"
+                  << "o2 - Show orthosis with the points' IDs\n"
+                  << "f  - Fusion the points into a scatter graph (and apply texture)\n"
+                  << "d  - Move a point (ID)\n"
+                  << "s  - Delete a point (ID)\n"
+                  << "c1 - Create surfaces depending on ID ascending order\n"
+                  << "c2 - Create surfaces depending minimum distance\n"
+                  << "q  - Quit\n> ";
         getline(std::cin, input);
 
-        Command* cmd = handler.findCommand(input);
-        if (cmd) {
+        if (std::unique_ptr<Command> cmd = handler.findCommand(input)) {
             Invoker::execute(*cmd);
         }
     }

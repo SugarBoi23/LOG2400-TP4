@@ -4,10 +4,10 @@
 
 #include <memory>
 
-CommandO2::CommandO2(const ScatterGraph& scatterGraph)
+CommandO2::CommandO2(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandO2::execute() {
-    scatterGraph_.setDisplay(std::make_unique<DisplayID>());
+    scatterGraph_.setDisplay(std::make_shared<DisplayID>());
     scatterGraph_.showPoints();
 }

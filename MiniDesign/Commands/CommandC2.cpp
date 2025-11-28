@@ -4,10 +4,10 @@
 
 #include <memory>
 
-CommandC2::CommandC2(const ScatterGraph& scatterGraph)
+CommandC2::CommandC2(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandC2::execute() {
-    scatterGraph_.setEdgeBuilder(std::make_unique<EdgeBuilderDistance>());
+    scatterGraph_.setEdgeBuilder(std::make_shared<EdgeBuilderDistance>());
     scatterGraph_.buildEdges();
 }

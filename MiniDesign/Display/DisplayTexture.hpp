@@ -11,5 +11,5 @@ public:
     DisplayTexture() = default;
     ~DisplayTexture() override = default;
 
-    void show(Grid& grid, const ComponentList& components, const std::string& texture) override;
+    void show(Grid& grid, ComponentList& components, const std::string& texture) override;
 };

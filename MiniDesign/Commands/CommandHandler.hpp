@@ -12,7 +12,7 @@
 class CommandHandler {
 public:
     explicit CommandHandler(const ScatterGraph& scatterGraph);
-    Command* findCommand(const std::string& key);
+    std::unique_ptr<Command> findCommand(const std::string& key);
     void undo();
     void redo();
 private:

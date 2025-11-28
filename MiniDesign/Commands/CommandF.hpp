@@ -5,6 +5,6 @@
 
 class CommandF : public Command {
 public:
-    explicit CommandF(const ScatterGraph& scatterGraph);
+    explicit CommandF(ScatterGraph& scatterGraph);
     void execute() override;
 };

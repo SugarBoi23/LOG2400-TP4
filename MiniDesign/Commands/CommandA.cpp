@@ -1,7 +1,7 @@
 #include "Components/ScatterGraph.hpp"
 #include "CommandA.hpp"
 
-CommandA::CommandA(const ScatterGraph& scatterGraph)
+CommandA::CommandA(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandA::execute() {

@@ -5,7 +5,7 @@
 
 class CommandD : public Command {
 public:
-    explicit CommandD(const ScatterGraph& scatterGraph);
+    explicit CommandD(ScatterGraph& scatterGraph);
     void execute() override;
     void undo() override;
 };

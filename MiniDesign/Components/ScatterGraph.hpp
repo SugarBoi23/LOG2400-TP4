@@ -33,8 +33,8 @@ public:
     // command c1 & c2
     void buildEdges();
 
-    void setDisplay(std::unique_ptr<Display> &&otherDisplay);
-    void setEdgeBuilder(std::unique_ptr<EdgeBuilder> &&otherEdgeBuilder);
+    void setDisplay(std::shared_ptr<Display> &&otherDisplay);
+    void setEdgeBuilder(std::shared_ptr<EdgeBuilder> &&otherEdgeBuilder);
 
 private:
     constexpr static std::array<std::string, 3> textures_ = {"o", "#", "$"};
@@ -43,6 +43,6 @@ private:
     ComponentList components_;
     std::string texture_;
 
-    std::unique_ptr<Display> display_;
-    std::unique_ptr<EdgeBuilder> edgeBuilder_;
+    std::shared_ptr<Display> display_;
+    std::shared_ptr<EdgeBuilder> edgeBuilder_;
 };

@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-CommandD::CommandD(const ScatterGraph& scatterGraph)
+CommandD::CommandD(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandD::execute() {

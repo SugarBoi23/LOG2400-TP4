@@ -24,14 +24,14 @@ CommandHandler::CommandHandler(const ScatterGraph& scatterGraph)
     Register<CommandS>("s");
 }
 
-Command* CommandHandler::findCommand(const std::string& key) {
+std::unique_ptr<Command> CommandHandler::findCommand(const std::string& key) {
     if (key == "q") {
         std::cout << "Closing..." << std::endl;
         return nullptr;
     }
     auto it = commands_.find(key);
     if (it != commands_.end()) {
-        return it->second.get();
+        return std::unique_ptr<Command>(it->second.get());
     }
     std::cout << "Unknown command: " << key << "\n";
     return nullptr;

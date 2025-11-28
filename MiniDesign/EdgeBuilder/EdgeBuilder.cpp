@@ -37,7 +37,7 @@ void EdgeBuilder::build(Grid& grid, ComponentList points) {}
 void EdgeBuilder::mergeGraphs(ComponentList& components) {
     ComponentList newComponents{};
     for (const auto & component : components) {
-        if (auto graphPtr = std::dynamic_pointer_cast<ScatterGraph>(component)) {
+        if (const auto graphPtr = std::dynamic_pointer_cast<ScatterGraph>(component)) {
             newComponents.insert(newComponents.end(),
                                  graphPtr->getComponents().begin(),
                                  graphPtr->getComponents().end());

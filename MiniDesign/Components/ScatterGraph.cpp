@@ -30,10 +30,10 @@ ScatterGraph::ScatterGraph(const std::string& points)
 }
 
 ScatterGraph::ScatterGraph(const ScatterGraph& other)
-    : Component(other),
-      grid_(other.grid_),
-      components_(other.components_),
-      texture_(other.texture_) {}
+    : Component(other)
+    , grid_(other.grid_)
+    , components_(other.components_)
+    , texture_(other.texture_) {}
 
 ComponentList & ScatterGraph::getComponents() {
     return components_;
@@ -73,13 +73,11 @@ void ScatterGraph::listPoints() {
 void ScatterGraph::showPoints() {
     if (display_) {
         display_->show(grid_, components_, texture_);
-        std::cout << "Display applied with texture '" << texture_ << "'." << std::endl;
     }
 }
 
 void ScatterGraph::fusion() {
     texture_ = textures_[getID() % textures_.size()];
-    std::cout << "Fusion applied with texture '" << texture_ << "' to points: ";
 
     for (const auto& component : components_) {
         if (auto pointPtr = std::dynamic_pointer_cast<Point>(component)) {
@@ -104,15 +102,14 @@ void ScatterGraph::deletePoint(int ID) {
 
 void ScatterGraph::buildEdges() {
     if (edgeBuilder_) {
-        std::cout << "BUILD!";
         edgeBuilder_->build(grid_, components_);
     }
 }
 
-void ScatterGraph::setDisplay(std::unique_ptr<Display> &&otherDisplay) {
+void ScatterGraph::setDisplay(std::shared_ptr<Display> &&otherDisplay) {
     display_ = std::move(otherDisplay);
 }
 
-void ScatterGraph::setEdgeBuilder(std::unique_ptr<EdgeBuilder> &&otherEdgeBuilder) {
+void ScatterGraph::setEdgeBuilder(std::shared_ptr<EdgeBuilder> &&otherEdgeBuilder) {
     edgeBuilder_ = std::move(otherEdgeBuilder);
 }

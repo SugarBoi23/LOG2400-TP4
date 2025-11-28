@@ -10,6 +10,6 @@ public:
     virtual void undo();
 
 protected:
-    explicit Command(const ScatterGraph& scatterGraph);
-    ScatterGraph scatterGraph_;
+    explicit Command(ScatterGraph& scatterGraph);
+    ScatterGraph& scatterGraph_;
 };

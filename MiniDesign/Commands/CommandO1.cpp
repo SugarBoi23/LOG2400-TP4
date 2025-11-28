@@ -4,11 +4,10 @@
 
 #include <memory>
 
-
-CommandO1::CommandO1(const ScatterGraph& scatterGraph)
+CommandO1::CommandO1(ScatterGraph& scatterGraph)
         : Command(scatterGraph) {}
 
 void CommandO1::execute() {
-    scatterGraph_.setDisplay(std::make_unique<DisplayTexture>());
+    scatterGraph_.setDisplay(std::make_shared<DisplayTexture>());
     scatterGraph_.showPoints();
 }

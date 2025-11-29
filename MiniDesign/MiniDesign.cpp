@@ -33,14 +33,20 @@ int main(int argc, char* argv[]) {
                   << "f  - Fusion the points into a scatter graph (and apply texture)\n"
                   << "d  - Move a point (ID)\n"
                   << "s  - Delete a point (ID)\n"
+                  << "u  - Undo the last action\n"
+                  << "r  - Redo the last action\n"
                   << "c1 - Create surfaces depending on ID ascending order\n"
                   << "c2 - Create surfaces depending minimum distance\n"
                   << "q  - Quit\n> ";
         getline(std::cin, input);
 
         if (std::unique_ptr<Command> cmd = handler.findCommand(input)) {
-            Invoker::execute(*cmd);
+            if (input == "u")
+                Invoker::undo(*cmd);
+            else
+                Invoker::execute(*cmd);
         }
+
     }
 
     return 0;

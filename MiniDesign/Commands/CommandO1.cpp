@@ -11,3 +11,7 @@ void CommandO1::execute() {
     scatterGraph_.setDisplay(std::make_shared<DisplayTexture>());
     scatterGraph_.showPoints();
 }
+
+std::unique_ptr<Command> CommandO1::clone() const {
+    return std::make_unique<CommandO1>(*this);
+}

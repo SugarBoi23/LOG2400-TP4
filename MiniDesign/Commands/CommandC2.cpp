@@ -11,3 +11,7 @@ void CommandC2::execute() {
     scatterGraph_.setEdgeBuilder(std::make_shared<EdgeBuilderDistance>());
     scatterGraph_.buildEdges();
 }
+
+std::unique_ptr<Command> CommandC2::clone() const {
+    return std::make_unique<CommandC2>(*this);
+}

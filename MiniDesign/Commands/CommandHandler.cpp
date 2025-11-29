@@ -26,24 +26,51 @@ CommandHandler::CommandHandler(const ScatterGraph& scatterGraph)
 
 std::unique_ptr<Command> CommandHandler::findCommand(const std::string& key) {
     if (key == "q") {
-        std::cout << "Closing..." << std::endl;
+        std::cout << "Closing...\n";
         return nullptr;
     }
-    auto it = commands_.find(key);
-    if (it != commands_.end()) {
-        return std::unique_ptr<Command>(it->second.get());
+
+    if (key == "u") {
+        return undo();
     }
+
+    if (key == "r") {
+        return redo();
+    }
+
+    if (const auto it = commands_.find(key); it != commands_.end()) {
+        auto cmd = it->second->clone();
+        if (key == "d" || key == "s") {
+            undoStack.push(cmd->clone());
+            while (!redoStack.empty()) redoStack.pop();
+        }
+        return cmd;
+    }
+
     std::cout << "Unknown command: " << key << "\n";
     return nullptr;
 }
 
-void CommandHandler::undo() {
-    // TODO
+std::unique_ptr<Command> CommandHandler::undo() {
+    if (undoStack.empty()) {
+        std::cout << "Nothing to undo.\n";
+        return nullptr;
+    }
+    auto cmd = std::move(undoStack.top());
+    undoStack.pop();
+    redoStack.push(cmd->clone());
+    return std::move(cmd);
 }
 
-// Redo the last undone command if possible
-void CommandHandler::redo() {
-    // TODO
+std::unique_ptr<Command> CommandHandler::redo() {
+    if (redoStack.empty()) {
+        std::cout << "Nothing to redo.\n";
+        return nullptr;
+    }
+    auto cmd = std::move(redoStack.top());
+    redoStack.pop();
+    undoStack.push(cmd->clone());
+    return std::move(cmd);
 }
 
 template<typename T>
